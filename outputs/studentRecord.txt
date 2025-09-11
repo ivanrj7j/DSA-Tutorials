@@ -1,0 +1,124 @@
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 1
+Enter Number: 38
+Enter Name: Ivan Raphel Jaison
+Enter Mark: 69
+Inserted student 38.
+
+--- Student List ---
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 1
+Enter Number: Muhammed Sahil
+Enter Name: Enter Mark: 49
+Inserted student 38.
+
+--- Student List ---
+Number: 38    | Name: Muhammed Sahil       | Marks: 49.00
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 1
+Enter Number: 40
+Enter Name: Jesbin
+Enter Mark: 69
+Inserted student 40.
+
+--- Student List ---
+Number: 40    | Name: Jesbin               | Marks: 69.00
+Number: 38    | Name: Muhammed Sahil       | Marks: 49.00
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 2
+Enter Number to Delete: 38
+Deleted student 38.
+
+--- Student List ---
+Number: 40    | Name: Jesbin               | Marks: 69.00
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 3
+Enter Number to Search: 38
+Found Student -> Number: 38, Name: Ivan Raphel Jaison, Marks: 69.00
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 1
+Enter Number: 37
+Enter Name: Hrishi
+Enter Mark: 420
+Inserted student 37.
+
+--- Student List ---
+Number: 37    | Name: Hrishi               | Marks: 420.00
+Number: 40    | Name: Jesbin               | Marks: 69.00
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 4
+List sorted by student number.
+
+--- Student List ---
+Number: 37    | Name: Hrishi               | Marks: 420.00
+Number: 38    | Name: Ivan Raphel Jaison   | Marks: 69.00
+Number: 40    | Name: Jesbin               | Marks: 69.00
+--------------------
+
+--- Student Records Menu ---
+1. Insert
+2. Delete
+3. Search
+4. Sort
+5. Display
+6. Exit
+Enter your choice: 6
+Exiting.

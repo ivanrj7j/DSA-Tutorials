@@ -1,0 +1,66 @@
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 1
+Enter URL: youtube.com
+Visited: youtube.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 1
+Enter URL: google.com
+Visited: google.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 1
+Enter URL: blubit.com
+Visited: blubit.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 2
+<- Back to: google.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 3
+-> Forward to: blubit.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 4
+Currently on page: blubit.com
+
+--- Browser Navigation Menu ---
+1. Visit a page
+2. Go Back
+3. Go Forward
+4. Show Current Page
+5. Exit
+Enter your choice: 5
+Exiting.

@@ -1,0 +1,81 @@
+Algorithm for push taking in item
+Step 1) START
+Step 2) IF `top` >= `MAX_SIZE` - 1 THEN
+Step 3)     PRINT "Stack Overflow"
+Step 4)     RETURN
+Step 5) SET `top` = `top` + 1
+Step 6) SET `stack`[`top`] = `item`
+Step 7) STOP
+
+Algorithm for pop
+Step 1) START
+Step 2) IF `top` < 0 THEN
+Step 3)     PRINT "Stack Underflow"
+Step 4)     RETURN -1
+Step 5) SET `item` = `stack`[`top`]
+Step 6) SET `top` = `top` - 1
+Step 7) RETURN `item`
+Step 8) STOP
+
+Algorithm for enqueue taking in item
+Step 1) START
+Step 2) IF `rear` >= `MAX_SIZE` - 1 THEN
+Step 3)     PRINT "Queue is full"
+Step 4)     RETURN
+Step 5) IF `front` is equal to -1 THEN
+Step 6)     SET `front` = 0
+Step 7) SET `rear` = `rear` + 1
+Step 8) SET `queue`[`rear`] = `item`
+Step 9) STOP
+
+Algorithm for dequeue
+Step 1) START
+Step 2) IF `front` is equal to -1 OR `front` > `rear` THEN
+Step 3)     PRINT "Queue is empty"
+Step 4)     RETURN -1
+Step 5) SET `item` = `queue`[`front`]
+Step 6) SET `front` = `front` + 1
+Step 7) RETURN `item`
+Step 8) STOP
+
+Algorithm for displayQueue
+Step 1) START
+Step 2) IF `front` is equal to -1 OR `front` > `rear` THEN
+Step 3)     PRINT "Queue is empty."
+Step 4)     RETURN
+Step 5) PRINT "Queue: "
+Step 6) INITIALIZE `i` = `front`
+Step 7) IF `i` <= `rear` THEN
+Step 8)     PRINT "%d ", `queue`[`i`]
+Step 9)     SET `i` = `i` + 1
+Step 10)    GOTO Step 7
+Step 11) PRINT new line
+Step 12) STOP
+
+Algorithm
+Step 1) START
+Step 2) INITIALIZE `n`, `value`
+Step 3) PRINT "How many elements to add to the queue? "
+Step 4) READ `n`
+Step 5) PRINT "Enter %d elements:", `n`
+Step 6) INITIALIZE `i` = 0
+Step 7) IF `i` < `n` THEN
+Step 8)     READ `value`
+Step 9)     CALL Algorithm for enqueue taking in `value`
+Step 10)    SET `i` = `i` + 1
+Step 11)    GOTO Step 7
+Step 12) PRINT new line
+Step 13) PRINT "Original "
+Step 14) CALL Algorithm for displayQueue
+Step 15) IF `front` <= `rear` AND `front` != -1 THEN
+Step 16)    CALL Algorithm for push taking in CALL Algorithm for dequeue
+Step 17)    GOTO Step 15
+Step 18) SET `front` = -1
+Step 19) SET `rear` = -1
+Step 20) IF `top` != -1 THEN
+Step 21)    CALL Algorithm for enqueue taking in CALL Algorithm for pop
+Step 22)    GOTO Step 20
+Step 23) PRINT "Reversed "
+Step 24) CALL Algorithm for displayQueue
+Step 25) RETURN 0
+Step 26) STOP

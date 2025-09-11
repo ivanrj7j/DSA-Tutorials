@@ -1,0 +1,136 @@
+Algorithm for insertTerm taking in poly, c, e
+Step 1) START
+Step 2) ALLOCATE memory for `newTerm` of type Term
+Step 3) SET `newTerm`->`coeff` = `c`
+Step 4) SET `newTerm`->`exp` = `e`
+Step 5) SET `newTerm`->`next` = NULL
+Step 6) IF `poly` is equal to NULL OR `poly`->`exp` < `e` THEN
+Step 7)     SET `newTerm`->`next` = `poly`
+Step 8)     SET `poly` = `newTerm`
+Step 9)     RETURN
+Step 10) INITIALIZE `temp` = `poly`
+Step 11) IF `temp`->`next` is not equal to NULL AND `temp`->`next`->`exp` >= `e` THEN
+Step 12)    SET `temp` = `temp`->`next`
+Step 13)    GOTO Step 11
+Step 14) IF `temp`->`exp` is equal to `e` THEN
+Step 15)    SET `temp`->`coeff` = `temp`->`coeff` + `c`
+Step 16) ELSE
+Step 17)    SET `newTerm`->`next` = `temp`->`next`
+Step 18)    SET `temp`->`next` = `newTerm`
+Step 19) STOP
+
+Algorithm for display taking in poly
+Step 1) START
+Step 2) IF `poly` is equal to NULL THEN
+Step 3)     PRINT "0"
+Step 4)     RETURN
+Step 5) IF `poly` is not equal to NULL THEN
+Step 6)     IF `poly`->`coeff` is not equal to 0 THEN
+Step 7)         PRINT "%dx^%d", `poly`->`coeff`, `poly`->`exp`
+Step 8)         IF `poly`->`next` is not equal to NULL AND `poly`->`next`->`coeff` is not equal to 0 THEN
+Step 9)             PRINT " + "
+Step 10)    SET `poly` = `poly`->`next`
+Step 11)    GOTO Step 5
+Step 12) PRINT new line
+Step 13) STOP
+
+Algorithm for addPolynomials taking in poly1, poly2
+Step 1) START
+Step 2) INITIALIZE `result` = NULL
+Step 3) INITIALIZE `p1` = `poly1`
+Step 4) INITIALIZE `p2` = `poly2`
+Step 5) IF `p1` is not equal to NULL THEN
+Step 6)     CALL Algorithm for insertTerm taking in `result`, `p1`->`coeff`, `p1`->`exp`
+Step 7)     SET `p1` = `p1`->`next`
+Step 8)     GOTO Step 5
+Step 9) IF `p2` is not equal to NULL THEN
+Step 10)    CALL Algorithm for insertTerm taking in `result`, `p2`->`coeff`, `p2`->`exp`
+Step 11)    SET `p2` = `p2`->`next`
+Step 12)    GOTO Step 9
+Step 13) RETURN `result`
+Step 14) STOP
+
+Algorithm for multiplyPolynomials taking in poly1, poly2
+Step 1) START
+Step 2) INITIALIZE `result` = NULL
+Step 3) INITIALIZE `p1` = `poly1`
+Step 4) INITIALIZE `p2` = `poly2`
+Step 5) IF `poly1` is equal to NULL OR `poly2` is equal to NULL THEN
+Step 6)     RETURN NULL
+Step 7) IF `p1` is not equal to NULL THEN
+Step 8)     SET `p2` = `poly2`
+Step 9)     IF `p2` is not equal to NULL THEN
+Step 10)        CALL Algorithm for insertTerm taking in `result`, `p1`->`coeff` * `p2`->`coeff`, `p1`->`exp` + `p2`->`exp`
+Step 11)        SET `p2` = `p2`->`next`
+Step 12)        GOTO Step 9
+Step 13)    SET `p1` = `p1`->`next`
+Step 14)    GOTO Step 7
+Step 15) RETURN `result`
+Step 16) STOP
+
+Algorithm for freePoly taking in poly
+Step 1) START
+Step 2) INITIALIZE `current` = `poly`
+Step 3) IF `current` is not equal to NULL THEN
+Step 4)     SET `next` = `current`->`next`
+Step 5)     FREE(`current`)
+Step 6)     SET `current` = `next`
+Step 7)     GOTO Step 3
+Step 8) SET `poly` = NULL
+Step 9) STOP
+
+Algorithm
+Step 1) START
+Step 2) INITIALIZE `poly1` = NULL, `poly2` = NULL
+Step 3) INITIALIZE `n`, `i`, `c`, `e`
+Step 4) PRINT "--- Polynomial 1 ---"
+Step 5) PRINT "Enter number of terms: "
+Step 6) READ `n`
+Step 7) SET `i` = 0
+Step 8) IF `i` < `n` THEN
+Step 9)     PRINT "Enter coeff and exp for term %d: ", `i` + 1
+Step 10)    READ `c`, `e`
+Step 11)    CALL Algorithm for insertTerm taking in `poly1`, `c`, `e`
+Step 12)    SET `i` = `i` + 1
+Step 13)    GOTO Step 8
+Step 14) PRINT new line
+Step 15) PRINT "--- Polynomial 2 ---"
+Step 16) PRINT "Enter number of terms: "
+Step 17) READ `n`
+Step 18) SET `i` = 0
+Step 19) IF `i` < `n` THEN
+Step 20)    PRINT "Enter coeff and exp for term %d: ", `i` + 1
+Step 21)    READ `c`, `e`
+Step 22)    CALL Algorithm for insertTerm taking in `poly2`, `c`, `e`
+Step 23)    SET `i` = `i` + 1
+Step 24)    GOTO Step 19
+Step 25) PRINT new line
+Step 26) PRINT "Polynomial 1: "
+Step 27) CALL Algorithm for display taking in `poly1`
+Step 28) PRINT "Polynomial 2: "
+Step 29) CALL Algorithm for display taking in `poly2`
+Step 30) INITIALIZE `choice`
+Step 31) PRINT new line
+Step 32) PRINT "--- Operations ---"
+Step 33) PRINT "1. Addition"
+Step 34) PRINT "2. Multiplication"
+Step 35) PRINT "Enter choice: "
+Step 36) READ `choice`
+Step 37) IF `choice` is equal to 1 THEN
+Step 38)    INITIALIZE `sum` = CALL Algorithm for addPolynomials taking in `poly1`, `poly2`
+Step 39)    PRINT new line
+Step 40)    PRINT "Sum: "
+Step 41)    CALL Algorithm for display taking in `sum`
+Step 42)    CALL Algorithm for freePoly taking in `sum`
+Step 43) ELSE IF `choice` is equal to 2 THEN
+Step 44)    INITIALIZE `product` = CALL Algorithm for multiplyPolynomials taking in `poly1`, `poly2`
+Step 45)    PRINT new line
+Step 46)    PRINT "Product: "
+Step 47)    CALL Algorithm for display taking in `product`
+Step 48)    CALL Algorithm for freePoly taking in `product`
+Step 49) ELSE
+Step 50)    PRINT "Invalid choice."
+Step 51) CALL Algorithm for freePoly taking in `poly1`
+Step 52) CALL Algorithm for freePoly taking in `poly2`
+Step 53) RETURN 0
+Step 54) STOP

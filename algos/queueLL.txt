@@ -1,0 +1,81 @@
+Algorithm for createQueue
+Step 1) START
+Step 2) ALLOCATE memory for `q` of type Queue
+Step 3) SET `q`->`front` = NULL
+Step 4) SET `q`->`rear` = NULL
+Step 5) RETURN `q`
+Step 6) STOP
+
+Algorithm for enqueue taking in q, k
+Step 1) START
+Step 2) ALLOCATE memory for `temp` of type QNode
+Step 3) SET `temp`->`key` = `k`
+Step 4) SET `temp`->`next` = NULL
+Step 5) IF `q`->`rear` is equal to NULL THEN
+Step 6)     SET `q`->`front` = `temp`
+Step 7)     SET `q`->`rear` = `temp`
+Step 8)     PRINT "Enqueued %d to the queue.", `k`
+Step 9)     RETURN
+Step 10) SET `q`->`rear`->`next` = `temp`
+Step 11) SET `q`->`rear` = `temp`
+Step 12) PRINT "Enqueued %d to the queue.", `k`
+Step 13) STOP
+
+Algorithm for dequeue taking in q
+Step 1) START
+Step 2) IF `q`->`front` is equal to NULL THEN
+Step 3)     PRINT "Queue is empty. Cannot dequeue."
+Step 4)     RETURN
+Step 5) SET `temp` = `q`->`front`
+Step 6) SET `q`->`front` = `q`->`front`->`next`
+Step 7) IF `q`->`front` is equal to NULL THEN
+Step 8)     SET `q`->`rear` = NULL
+Step 9) PRINT "Dequeued element: %d", `temp`->`key`
+Step 10) FREE(`temp`)
+Step 11) STOP
+
+Algorithm for displayQueue taking in q
+Step 1) START
+Step 2) IF `q`->`front` is equal to NULL THEN
+Step 3)     PRINT "Queue is empty."
+Step 4)     RETURN
+Step 5) SET `temp` = `q`->`front`
+Step 6) PRINT "Queue elements: FRONT -> "
+Step 7) IF `temp` is not equal to NULL THEN
+Step 8)     PRINT "%d -> ", `temp`->`key`
+Step 9)     SET `temp` = `temp`->`next`
+Step 10)    GOTO Step 7
+Step 11) PRINT "REAR"
+Step 12) STOP
+
+Algorithm
+Step 1) START
+Step 2) SET `q` = CALL Algorithm for createQueue
+Step 3) INITIALIZE `choice`, `value`
+Step 4) IF 1 THEN
+Step 5)     PRINT new line
+Step 6)     PRINT "--- Queue Menu (Linked List) ---"
+Step 7)     PRINT "1. Enqueue"
+Step 8)     PRINT "2. Dequeue"
+Step 9)     PRINT "3. Display"
+Step 10)    PRINT "4. Exit"
+Step 11)    PRINT "Enter your choice: "
+Step 12)    READ `choice`
+Step 13)    IF `choice` is equal to 1 THEN
+Step 14)        PRINT "Enter value to enqueue: "
+Step 15)        READ `value`
+Step 16)        CALL Algorithm for enqueue taking in `q`, `value`
+Step 17)        CALL Algorithm for displayQueue taking in `q`
+Step 18)    ELSE IF `choice` is equal to 2 THEN
+Step 19)        CALL Algorithm for dequeue taking in `q`
+Step 20)        CALL Algorithm for displayQueue taking in `q`
+Step 21)    ELSE IF `choice` is equal to 3 THEN
+Step 22)        CALL Algorithm for displayQueue taking in `q`
+Step 23)    ELSE IF `choice` is equal to 4 THEN
+Step 24)        PRINT "Exiting."
+Step 25)        EXIT(0)
+Step 26)    ELSE
+Step 27)        PRINT "Invalid choice."
+Step 28)    GOTO Step 4
+Step 29) RETURN 0
+Step 30) STOP

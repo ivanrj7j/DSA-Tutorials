@@ -1,0 +1,22 @@
+--- Polynomial 1 ---
+Enter number of terms: 3
+Enter coeff and exp for term 1: 3 5
+Enter coeff and exp for term 2: 5 9
+Enter coeff and exp for term 3: 5 11
+
+--- Polynomial 2 ---
+Enter number of terms: 4
+Enter coeff and exp for term 1: 10 5
+Enter coeff and exp for term 2: 5 9
+Enter coeff and exp for term 3: 2 11
+Enter coeff and exp for term 4: 30 13
+
+Polynomial 1: 5x^11 + 5x^9 + 3x^5
+Polynomial 2: 30x^13 + 2x^11 + 5x^9 + 10x^5
+
+--- Operations ---
+1. Addition
+2. Multiplication
+Enter choice: 2
+
+Product: 150x^24 + 160x^22 + 35x^20 + 115x^18 + 56x^16 + 65x^14 + 30x^10

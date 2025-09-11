@@ -1,0 +1,10 @@
+How many elements to add to the queue? 5
+Enter 5 elements:
+3
+6
+9
+11
+20
+
+Original Queue: 3 6 9 11 20
+Reversed Queue: 20 11 9 6 3

@@ -1,0 +1,80 @@
+Algorithm for visitPage taking in url
+Step 1) START
+Step 2) ALLOCATE memory for `newPage` of type WebPage
+Step 3) IF `newPage` is equal to NULL THEN
+Step 4)     PRINT "Memory allocation failed!"
+Step 5)     RETURN
+Step 6) COPY `url` to `newPage`->`url`
+Step 7) SET `newPage`->`prev` = `currentPage`
+Step 8) SET `newPage`->`next` = NULL
+Step 9) IF `currentPage` is not equal to NULL THEN
+Step 10)    SET `temp` = `currentPage`->`next`
+Step 11)    IF `temp` is not equal to NULL THEN
+Step 12)        SET `toDelete` = `temp`
+Step 13)        SET `temp` = `temp`->`next`
+Step 14)        FREE(`toDelete`)
+Step 15)        GOTO Step 11
+Step 16)    SET `currentPage`->`next` = `newPage`
+Step 17) SET `currentPage` = `newPage`
+Step 18) PRINT "Visited: %s", `currentPage`->`url`
+Step 19) STOP
+
+Algorithm for goBack
+Step 1) START
+Step 2) IF `currentPage` is not equal to NULL AND `currentPage`->`prev` is not equal to NULL THEN
+Step 3)     SET `currentPage` = `currentPage`->`prev`
+Step 4)     PRINT "<- Back to: %s", `currentPage`->`url`
+Step 5) ELSE
+Step 6)     PRINT "Cannot go back. No previous page."
+Step 7) STOP
+
+Algorithm for goForward
+Step 1) START
+Step 2) IF `currentPage` is not equal to NULL AND `currentPage`->`next` is not equal to NULL THEN
+Step 3)     SET `currentPage` = `currentPage`->`next`
+Step 4)     PRINT "-> Forward to: %s", `currentPage`->`url`
+Step 5) ELSE
+Step 6)     PRINT "Cannot go forward. No next page."
+Step 7) STOP
+
+Algorithm for showCurrentPage
+Step 1) START
+Step 2) IF `currentPage` is not equal to NULL THEN
+Step 3)     PRINT "Currently on page: %s", `currentPage`->`url`
+Step 4) ELSE
+Step 5)     PRINT "Browser history is empty."
+Step 6) STOP
+
+Algorithm
+Step 1) START
+Step 2) SET `currentPage` = NULL
+Step 3) INITIALIZE `choice`
+Step 4) INITIALIZE `url`
+Step 5) IF 1 THEN
+Step 6)     PRINT new line
+Step 7)     PRINT "--- Browser Navigation Menu ---"
+Step 8)     PRINT "1. Visit a page"
+Step 9)     PRINT "2. Go Back"
+Step 10)    PRINT "3. Go Forward"
+Step 11)    PRINT "4. Show Current Page"
+Step 12)    PRINT "5. Exit"
+Step 13)    PRINT "Enter your choice: "
+Step 14)    READ `choice`
+Step 15)    IF `choice` is equal to 1 THEN
+Step 16)        PRINT "Enter URL: "
+Step 17)        READ `url`
+Step 18)        CALL Algorithm for visitPage taking in `url`
+Step 19)    ELSE IF `choice` is equal to 2 THEN
+Step 20)        CALL Algorithm for goBack
+Step 21)    ELSE IF `choice` is equal to 3 THEN
+Step 22)        CALL Algorithm for goForward
+Step 23)    ELSE IF `choice` is equal to 4 THEN
+Step 24)        CALL Algorithm for showCurrentPage
+Step 25)    ELSE IF `choice` is equal to 5 THEN
+Step 26)        PRINT "Exiting."
+Step 27)        EXIT(0)
+Step 28)    ELSE
+Step 29)        PRINT "Invalid choice."
+Step 30)    GOTO Step 5
+Step 31) RETURN 0
+Step 32) STOP
