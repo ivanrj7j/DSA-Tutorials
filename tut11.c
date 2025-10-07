@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// --- Adjacency List Representation ---
 struct AdjListNode {
     int dest;
     struct AdjListNode* next;
@@ -10,7 +11,7 @@ struct AdjList {
     struct AdjListNode* head;
 };
 
-struct Graph {
+struct GraphList {
     int V;
     struct AdjList* array;
 };
@@ -22,72 +23,69 @@ struct AdjListNode* newAdjListNode(int dest) {
     return newNode;
 }
 
-struct Graph* createGraph(int V) {
-    struct Graph* graph = (struct Graph*)malloc(sizeof(struct Graph));
+// --- Adjacency Matrix Representation ---
+struct GraphMatrix {
+    int V;
+    int** adj;
+};
+
+struct GraphMatrix* createGraphMatrix(int V) {
+    struct GraphMatrix* graph = (struct GraphMatrix*)malloc(sizeof(struct GraphMatrix));
     graph->V = V;
-    graph->array = (struct AdjList*)malloc(V * sizeof(struct AdjList));
-    for (int i = 0; i < V; ++i)
-        graph->array[i].head = NULL;
+    graph->adj = (int**)malloc(V * sizeof(int*));
+    for (int i = 0; i < V; i++) {
+        graph->adj[i] = (int*)calloc(V, sizeof(int));
+    }
     return graph;
 }
 
-void addEdge(struct Graph* graph, int src, int dest) {
-    struct AdjListNode* newNode = newAdjListNode(dest);
-    newNode->next = graph->array[src].head;
-    graph->array[src].head = newNode;
-    newNode = newAdjListNode(src);
-    newNode->next = graph->array[dest].head;
-    graph->array[dest].head = newNode;
-}
-
-void DFSUtil(int v, int visited[], struct Graph* graph) {
-    visited[v] = 1;
-    printf("%d ", v);
-    struct AdjListNode* pCrawl = graph->array[v].head;
-    while (pCrawl) {
-        if (!visited[pCrawl->dest])
-            DFSUtil(pCrawl->dest, visited, graph);
-        pCrawl = pCrawl->next;
+void addEdge(struct GraphMatrix* graph, int src, int dest) {
+    // For a directed graph
+    if (src < graph->V && dest < graph->V) {
+        graph->adj[src][dest] = 1;
     }
 }
 
-void DFS(struct Graph* graph, int startVertex) {
-    int *visited = (int*)calloc(graph->V, sizeof(int));
-    printf("Depth First Search (starting from vertex %d): ", startVertex);
-    DFSUtil(startVertex, visited, graph);
-    printf("\n");
-    free(visited);
+void printGraphMatrix(struct GraphMatrix* graph) {
+    printf("Adjacency Matrix:\n");
+    for (int i = 0; i < graph->V; i++) {
+        for (int j = 0; j < graph->V; j++) {
+            printf("%d ", graph->adj[i][j]);
+        }
+        printf("\n");
+    }
 }
 
-void BFS(struct Graph* graph, int startVertex) {
-    int *visited = (int*)calloc(graph->V, sizeof(int));
-    int* queue = (int*)malloc(graph->V * sizeof(int));
-    int front = 0, rear = 0;
+void calculateDegrees(struct GraphMatrix* graph) {
+    int inDegree[graph->V];
+    int outDegree[graph->V];
 
-    printf("Breadth First Search (starting from vertex %d): ", startVertex);
-    visited[startVertex] = 1;
-    queue[rear++] = startVertex;
+    for (int i = 0; i < graph->V; i++) {
+        inDegree[i] = 0;
+        outDegree[i] = 0;
+    }
 
-    while (front != rear) {
-        int v = queue[front++];
-        printf("%d ", v);
-        struct AdjListNode* pCrawl = graph->array[v].head;
-        while (pCrawl) {
-            if (!visited[pCrawl->dest]) {
-                visited[pCrawl->dest] = 1;
-                queue[rear++] = pCrawl->dest;
+    for (int i = 0; i < graph->V; i++) {
+        for (int j = 0; j < graph->V; j++) {
+            if (graph->adj[i][j] == 1) {
+                outDegree[i]++;
+                inDegree[j]++;
             }
-            pCrawl = pCrawl->next;
         }
     }
-    printf("\n");
-    free(visited);
-    free(queue);
+
+    printf("\nVertex\tIn-Degree\tOut-Degree\n");
+    for (int i = 0; i < graph->V; i++) {
+        printf("%d\t%d\t\t%d\n", i, inDegree[i], outDegree[i]);
+    }
 }
+
 
 int main() {
     int V = 5;
-    struct Graph* graph = createGraph(V);
+    struct GraphMatrix* graph = createGraphMatrix(V);
+
+    // Using a directed graph to show in-degree and out-degree
     addEdge(graph, 0, 1);
     addEdge(graph, 0, 4);
     addEdge(graph, 1, 2);
@@ -96,8 +94,16 @@ int main() {
     addEdge(graph, 2, 3);
     addEdge(graph, 3, 4);
 
-    DFS(graph, 0);
-    BFS(graph, 0);
+    // Representation of graph using Adjacency Matrix
+    printGraphMatrix(graph);
+
+    // Computing various parameters (indegree, outdegree)
+    calculateDegrees(graph);
+
+
+    // Note: The Adjacency List representation is also a valid way to represent a graph.
+    // The code for it is included above but the main function demonstrates the matrix
+    // as it makes calculating in-degrees more straightforward.
 
     return 0;
 }

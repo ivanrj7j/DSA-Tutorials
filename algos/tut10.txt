@@ -1,0 +1,37 @@
+Step 1) START
+Step 2) DEFINE function \`replaceWord\` that takes three character pointers \`s\` (source string), \`oldW\` (old word), and \`newW\` (new word) as input, and returns a character pointer.
+Step 3)    INITIALIZE \`result\` as a character pointer.
+Step 4)    INITIALIZE \`i\` = 0, \`cnt\` = 0.
+Step 5)    SET \`newWlen\` = LENGTH(\`newW\`).
+Step 6)    SET \`oldWlen\` = LENGTH(\`oldW\`).
+Step 7)    IF i-th element of \`s\` is not equal to the null terminator THEN
+Step 8)        IF the substring of \`s\` starting at the i-th element matches \`oldW\` THEN
+Step 9)            SET \`cnt\` = \`cnt\` + 1.
+Step 10)           SET \`i\` = \`i\` + \`oldWlen\` - 1.
+Step 11)       SET \`i\` = \`i\` + 1.
+Step 12)       GOTO Step 7
+Step 13)   ALLOCATE memory for \`result\` with size \`i\` + \`cnt\` * (\`newWlen\` - \`oldWlen\`) + 1.
+Step 14)   SET \`i\` = 0.
+Step 15)   IF the character pointed to by \`s\` is not the null terminator THEN
+Step 16)       IF the substring of \`s\` matches \`oldW\` THEN
+Step 17)           COPY \`newW\` to \`result\` starting at the i-th element.
+Step 18)           SET \`i\` = \`i\` + \`newWlen\`.
+Step 19)           SET \`s\` = \`s\` + \`oldWlen\`.
+Step 20)       ELSE
+Step 21)           SET i-th element of \`result\` = the character pointed to by \`s\`.
+Step 22)           SET \`i\` = \`i\` + 1.
+Step 23)           SET \`s\` = \`s\` + 1.
+Step 24)       GOTO Step 15
+Step 25)   SET i-th element of \`result\` = null terminator.
+Step 26)   RETURN \`result\`.
+Step 27) DEFINE function \`main\`.
+Step 28)   INITIALIZE \`str\` = "the quick brown fox jumps over the lazy dog".
+Step 29)   INITIALIZE \`old\` = "fox".
+Step 30)   INITIALIZE \`new\` = "cat".
+Step 31)   INITIALIZE \`result\` = NULL.
+Step 32)   PRINT "Original string: ", \`str\`, newline character.
+Step 33)   SET \`result\` = CALL \`replaceWord\` with \`str\`, \`old\`, and \`new\`.
+Step 34)   PRINT "New String: ", \`result\`, newline character.
+Step 35)   FREE(\`result\`).
+Step 36)   RETURN 0.
+Step 37) STOP

@@ -1,0 +1,76 @@
+Step 1) START
+Step 2) DEFINE struct \`AdjListNode\` with fields \`dest\` (integer) and \`next\` (pointer to struct \`AdjListNode\`).
+Step 3) DEFINE struct \`AdjList\` with field \`head\` (pointer to struct \`AdjListNode\`).
+Step 4) DEFINE struct \`GraphList\` with fields \`V\` (integer) and \`array\` (pointer to struct \`AdjList\`).
+Step 5) DEFINE function \`newAdjListNode\` that takes an integer \`dest\` as input and returns a pointer to a new struct \`AdjListNode\`.
+Step 6)    ALLOCATE memory for a new struct \`AdjListNode\` and assign the pointer to \`newNode\`.
+Step 7)    SET \`newNode\`->\`dest\` = \`dest\`.
+Step 8)    SET \`newNode\`->\`next\` = NULL.
+Step 9)    RETURN \`newNode\`.
+Step 10) DEFINE struct \`GraphMatrix\` with fields \`V\` (integer) and \`adj\` (pointer to a 2D integer array).
+Step 11) DEFINE function \`createGraphMatrix\` that takes an integer \`V\` as input and returns a pointer to a new struct \`GraphMatrix\`.
+Step 12)   ALLOCATE memory for a new struct \`GraphMatrix\` and assign the pointer to \`graph\`.
+Step 13)   SET \`graph\`->\`V\` = \`V\`.
+Step 14)   ALLOCATE memory for \`V\` integer pointers and assign the pointer to \`graph\`->\`adj\`.
+Step 15)   INITIALIZE \`i\` = 0.
+Step 16)   IF \`i\` < \`V\` THEN
+Step 17)       ALLOCATE memory for \`V\` integers and assign the pointer to i-th element of \`graph\`->\`adj\`.
+Step 18)       SET all elements of i-th element of \`graph\`->\`adj\` to 0.
+Step 19)       SET \`i\` = \`i\` + 1.
+Step 20)       GOTO Step 16.
+Step 21)   RETURN \`graph\`.
+Step 22) DEFINE function \`addEdge\` that takes a pointer to a struct \`GraphMatrix\` called \`graph\`, an integer \`src\`, and an integer \`dest\` as input.
+Step 23)   IF \`src\` < \`graph\`->\`V\` AND \`dest\` < \`graph\`->\`V\` THEN
+Step 24)       SET the element at \`graph\`->\`adj\`[\`src\`][\`dest\`] = 1.
+Step 25) DEFINE function \`printGraphMatrix\` that takes a pointer to a struct \`GraphMatrix\` called \`graph\` as input.
+Step 26)   PRINT "Adjacency Matrix:", newline character.
+Step 27)   INITIALIZE \`i\` = 0.
+Step 28)   IF \`i\` < \`graph\`->\`V\` THEN
+Step 29)       INITIALIZE \`j\` = 0.
+Step 30)       IF \`j\` < \`graph\`->\`V\` THEN
+Step 31)           PRINT the element at \`graph\`->\`adj\`[i][j] followed by a space.
+Step 32)           SET \`j\` = \`j\` + 1.
+Step 33)           GOTO Step 30.
+Step 34)       PRINT newline character.
+Step 35)       SET \`i\` = \`i\` + 1.
+Step 36)       GOTO Step 28.
+Step 37) DEFINE function \`calculateDegrees\` that takes a pointer to a struct \`GraphMatrix\` called \`graph\` as input.
+Step 38)   INITIALIZE \`inDegree\` as an integer array of size \`graph\`->\`V\`.
+Step 39)   INITIALIZE \`outDegree\` as an integer array of size \`graph\`->\`V\`.
+Step 40)   INITIALIZE \`i\` = 0.
+Step 41)   IF \`i\` < \`graph\`->\`V\` THEN
+Step 42)       SET i-th element of \`inDegree\` = 0.
+Step 43)       SET i-th element of \`outDegree\` = 0.
+Step 44)       SET \`i\` = \`i\` + 1.
+Step 45)       GOTO Step 41.
+Step 46)   INITIALIZE \`i\` = 0.
+Step 47)   IF \`i\` < \`graph\`->\`V\` THEN
+Step 48)       INITIALIZE \`j\` = 0.
+Step 49)       IF \`j\` < \`graph\`->\`V\` THEN
+Step 50)           IF the element at \`graph\`->\`adj\`[i][j] == 1 THEN
+Step 51)               SET i-th element of \`outDegree\` = i-th element of \`outDegree\` + 1.
+Step 52)               SET j-th element of \`inDegree\` = j-th element of \`inDegree\` + 1.
+Step 53)           SET \`j\` = \`j\` + 1.
+Step 54)           GOTO Step 49.
+Step 55)       SET \`i\` = \`i\` + 1.
+Step 56)       GOTO Step 47.
+Step 57)   PRINT "Vertex", tab character, "In-Degree", tab character, "Out-Degree", newline character.
+Step 58)   INITIALIZE \`i\` = 0.
+Step 59)   IF \`i\` < \`graph\`->\`V\` THEN
+Step 60)       PRINT \`i\`, tab character, i-th element of \`inDegree\`, tab character, i-th element of \`outDegree\`, newline character.
+Step 61)       SET \`i\` = \`i\` + 1.
+Step 62)       GOTO Step 58.
+Step 63) DEFINE function \`main\`.
+Step 64)   SET \`V\` = 5.
+Step 65)   SET \`graph\` = CALL \`createGraphMatrix\` with \`V\`.
+Step 66)   CALL \`addEdge\` with \`graph\`, 0, 1.
+Step 67)   CALL \`addEdge\` with \`graph\`, 0, 4.
+Step 68)   CALL \`addEdge\` with \`graph\`, 1, 2.
+Step 69)   CALL \`addEdge\` with \`graph\`, 1, 3.
+Step 70)   CALL \`addEdge\` with \`graph\`, 1, 4.
+Step 71)   CALL \`addEdge\` with \`graph\`, 2, 3.
+Step 72)   CALL \`addEdge\` with \`graph\`, 3, 4.
+Step 73)   CALL \`printGraphMatrix\` with \`graph\`.
+Step 74)   CALL \`calculateDegrees\` with \`graph\`.
+Step 75)   RETURN 0.
+Step 76) STOP

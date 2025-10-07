@@ -1,0 +1,37 @@
+Step 1) START
+Step 2) DEFINE struct \`node\` with fields \`key\` (integer), \`left\` (pointer to struct \`node\`), and \`right\` (pointer to struct \`node\`)
+Step 3) DEFINE function \`newNode\` that takes an integer \`item\` as input and returns a pointer to a new struct \`node\`
+Step 4)     ALLOCATE memory for a new struct \`node\` and assign the pointer to \`temp\`
+Step 5)     SET \`temp\`->\`key\` = \`item\`
+Step 6)     SET \`temp\`->\`left\` = NULL
+Step 7)     SET \`temp\`->\`right\` = NULL
+Step 8)     RETURN \`temp\`
+Step 9) DEFINE function \`inorder\` that takes a pointer to a struct \`node\` called \`root\` as input
+Step 10)    IF \`root\` is not NULL THEN
+Step 11)        CALL \`inorder\` with \`root\`->\`left\`
+Step 12)        PRINT \`root\`->\`key\` followed by a space
+Step 13)        CALL \`inorder\` with \`root\`->\`right\`
+Step 14) DEFINE function \`insert\` that takes a pointer to a struct \`node\` called \`node\` and an integer \`key\` as input, and returns a pointer to a struct \`node\`
+Step 15)    IF \`node\` is NULL THEN
+Step 16)        SET \`temp\` = CALL \`newNode\` with \`key\`
+Step 17)        RETURN \`temp\`
+Step 18)    IF \`key\` < \`node\`->\`key\` THEN
+Step 19)        SET \`node\`->\`left\` = CALL \`insert\` with \`node\`->\`left\` and \`key\`
+Step 20)    ELSE
+Step 21)        IF \`key\` > \`node\`->\`key\` THEN
+Step 22)            SET \`node\`->\`right\` = CALL \`insert\` with \`node\`->\`right\` and \`key\`
+Step 23)    RETURN \`node\`
+Step 24) DEFINE function \`main\`
+Step 25)    INITIALIZE \`root\` = NULL
+Step 26)    INITIALIZE \`arr\` = {50, 30, 20, 40, 70, 60, 80}
+Step 27)    SET \`n\` = LENGTH(\`arr\`)
+Step 28)    INITIALIZE \`i\` = 0
+Step 29)    IF \`i\` < \`n\` THEN
+Step 30)        SET \`root\` = CALL \`insert\` with \`root\` and i-th element of \`arr\`
+Step 31)        SET \`i\` = \`i\` + 1
+Step 32)        GOTO Step 29
+Step 33)    PRINT "Sorted numbers: "
+Step 34)    CALL \`inorder\` with \`root\`
+Step 35)    PRINT newline character
+Step 36)    RETURN 0
+Step 37) STOP

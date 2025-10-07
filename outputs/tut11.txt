@@ -1,2 +1,13 @@
-Depth First Search (starting from vertex 0): 0 4 3 2 1
-Breadth First Search (starting from vertex 0): 0 4 1 3 2
+Adjacency Matrix:
+0 1 0 0 1
+0 0 1 1 1
+0 0 0 1 0
+0 0 0 0 1
+0 0 0 0 0
+
+Vertex  In-Degree       Out-Degree
+0       0               2
+1       1               3
+2       1               1
+3       2               1
+4       3               0

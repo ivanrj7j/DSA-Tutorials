@@ -1,0 +1,85 @@
+Step 1) START
+Step 2) DEFINE struct \`node\` with fields \`key\` (integer), \`left\` (pointer to struct \`node\`), and \`right\` (pointer to struct \`node\`)
+Step 3) DEFINE function \`newNode\` that takes an integer \`item\` as input and returns a pointer to a new struct \`node\`
+Step 4)     ALLOCATE memory for a new struct \`node\` and assign the pointer to \`temp\`
+Step 5)     SET \`temp\`->\`key\` = \`item\`
+Step 6)     SET \`temp\`->\`left\` = NULL
+Step 7)     SET \`temp\`->\`right\` = NULL
+Step 8)     RETURN \`temp\`
+Step 9) DEFINE function \`inorder\` that takes a pointer to a struct \`node\` called \`root\` as input
+Step 10)    IF \`root\` is not NULL THEN
+Step 11)        CALL \`inorder\` with \`root\`->\`left\`
+Step 12)        PRINT \`root\`->\`key\` followed by a space
+Step 13)        CALL \`inorder\` with \`root\`->\`right\`
+Step 14) DEFINE function \`preorder\` that takes a pointer to a struct \`node\` called \`root\` as input
+Step 15)    IF \`root\` is not NULL THEN
+Step 16)        PRINT \`root\`->\`key\` followed by a space
+Step 17)        CALL \`preorder\` with \`root\`->\`left\`
+Step 18)        CALL \`preorder\` with \`root\`->\`right\`
+Step 19) DEFINE function \`postorder\` that takes a pointer to a struct \`node\` called \`root\` as input
+Step 20)    IF \`root\` is not NULL THEN
+Step 21)        CALL \`postorder\` with \`root\`->\`left\`
+Step 22)        CALL \`postorder\` with \`root\`->\`right\`
+Step 23)        PRINT \`root\`->\`key\` followed by a space
+Step 24) DEFINE function \`insert\` that takes a pointer to a struct \`node\` called \`node\` and an integer \`key\` as input, and returns a pointer to a struct \`node\`
+Step 25)    IF \`node\` is NULL THEN
+Step 26)        SET \`temp\` = CALL \`newNode\` with \`key\`
+Step 27)        RETURN \`temp\`
+Step 28)    IF \`key\` < \`node\`->\`key\` THEN
+Step 29)        SET \`node\`->\`left\` = CALL \`insert\` with \`node\`->\`left\` and \`key\`
+Step 30)    ELSE
+Step 31)        SET \`node\`->\`right\` = CALL \`insert\` with \`node\`->\`right\` and \`key\`
+Step 32)    RETURN \`node\`
+Step 33) DEFINE function \`minValueNode\` that takes a pointer to a struct \`node\` called \`node\` as input and returns a pointer to a struct \`node\`
+Step 34)    SET \`current\` = \`node\`
+Step 35)    IF \`current\` is not NULL AND \`current\`->\`left\` is not NULL THEN
+Step 36)        SET \`current\` = \`current\`->\`left\`
+Step 37)        GOTO Step 35
+Step 38)    RETURN \`current\`
+Step 39) DEFINE function \`deleteNode\` that takes a pointer to a struct \`node\` called \`root\` and an integer \`key\` as input, and returns a pointer to a struct \`node\`
+Step 40)    IF \`root\` is NULL THEN
+Step 41)        RETURN \`root\`
+Step 42)    IF \`key\` < \`root\`->\`key\` THEN
+Step 43)        SET \`root\`->\`left\` = CALL \`deleteNode\` with \`root\`->\`left\` and \`key\`
+Step 44)    ELSE
+Step 45)        IF \`key\` > \`root\`->\`key\` THEN
+Step 46)            SET \`root\`->\`right\` = CALL \`deleteNode\` with \`root\`->\`right\` and \`key\`
+Step 47)        ELSE
+Step 48)            IF \`root\`->\`left\` is NULL THEN
+Step 49)                SET \`temp\` = \`root\`->\`right\`
+Step 50)                FREE(\`root\`)
+Step 51)                RETURN \`temp\`
+Step 52)            ELSE
+Step 53)                IF \`root\`->\`right\` is NULL THEN
+Step 54)                    SET \`temp\` = \`root\`->\`left\`
+Step 55)                    FREE(\`root\`)
+Step 56)                    RETURN \`temp\`
+Step 57)                SET \`temp\` = CALL \`minValueNode\` with \`root\`->\`right\`
+Step 58)                SET \`root\`->\`key\` = \`temp\`->\`key\`
+Step 59)                SET \`root\`->\`right\` = CALL \`deleteNode\` with \`root\`->\`right\` and \`temp\`->\`key\`
+Step 60)    RETURN \`root\`
+Step 61) DEFINE function \`main\`
+Step 62)    INITIALIZE \`root\` = NULL
+Step 63)    SET \`root\` = CALL \`insert\` with \`root\` and 50
+Step 64)    CALL \`insert\` with \`root\` and 30
+Step 65)    CALL \`insert\` with \`root\` and 20
+Step 66)    CALL \`insert\` with \`root\` and 40
+Step 67)    CALL \`insert\` with \`root\` and 70
+Step 68)    CALL \`insert\` with \`root\` and 60
+Step 69)    CALL \`insert\` with \`root\` and 80
+Step 70)    PRINT "Inorder traversal: "
+Step 71)    CALL \`inorder\` with \`root\`
+Step 72)    PRINT newline character
+Step 73)    PRINT "Preorder traversal: "
+Step 74)    CALL \`preorder\` with \`root\`
+Step 75)    PRINT newline character
+Step 76)    PRINT "Postorder traversal: "
+Step 77)    CALL \`postorder\` with \`root\`
+Step 78)    PRINT newline character
+Step 79)    SET \`root\` = CALL \`deleteNode\` with \`root\` and 20
+Step 80)    PRINT newline character
+Step 81)    PRINT "Inorder traversal after deleting 20: "
+Step 82)    CALL \`inorder\` with \`root\`
+Step 83)    PRINT newline character
+Step 84)    RETURN 0
+Step 85) STOP
