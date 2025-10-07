@@ -1,0 +1,2 @@
+Depth First Search (starting from vertex 0): 0 4 3 2 1
+Breadth First Search (starting from vertex 0): 0 4 1 3 2

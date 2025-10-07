@@ -1,0 +1,2 @@
+Original string: the quick brown fox jumps over the lazy dog
+New String: the quick brown cat jumps over the lazy dog
